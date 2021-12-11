@@ -36,7 +36,7 @@ def initialize_with_zeros(dim):
 
 def propagate(w, b, X, Y):
     """
-    Implement the cost function and its gradient for the propagation explained above
+    Implement the cost function and its gradient
 
     Arguments:
     w -- weights, a numpy array of size (num_px * num_px * 3, 1)
@@ -48,9 +48,6 @@ def propagate(w, b, X, Y):
     cost -- negative log-likelihood cost for logistic regression
     dw -- gradient of the loss with respect to w, thus same shape as w
     db -- gradient of the loss with respect to b, thus same shape as b
-
-    Tips:
-    - Write your code step by step for the propagation. np.log(), np.dot()
     """
 
     m = X.shape[1]
@@ -66,8 +63,6 @@ def propagate(w, b, X, Y):
              "db": db}
 
     return grads, cost
-
-# GRADED FUNCTION: optimize
 
 
 def optimize(w, b, X, Y, num_iterations=100, learning_rate=0.009, print_cost=False):
@@ -88,10 +83,6 @@ def optimize(w, b, X, Y, num_iterations=100, learning_rate=0.009, print_cost=Fal
     grads -- dictionary containing the gradients of the weights and bias with respect to the cost function
     costs -- list of all the costs computed during the optimization, this will be used to plot the learning curve.
 
-    Tips:
-    You basically need to write down two steps and iterate through them:
-        1) Calculate the cost and the gradient for the current parameters. Use propagate().
-        2) Update the parameters using gradient descent rule for w and b.
     """
     w = copy.deepcopy(w)
     b = copy.deepcopy(b)
@@ -112,8 +103,6 @@ def optimize(w, b, X, Y, num_iterations=100, learning_rate=0.009, print_cost=Fal
              "db": db}
 
     return params, grads, costs
-
-# GRADED FUNCTION: predict
 
 
 def predict(w, b, X):
@@ -146,7 +135,7 @@ def predict(w, b, X):
 
 def model(X_train, Y_train, X_test, Y_test, num_iterations=2000, learning_rate=0.5, print_cost=False):
     """
-    Builds the logistic regression model by calling the function you've implemented previously
+    Builds the logistic regression model
 
     Arguments:
     X_train -- training set represented by a numpy array of shape (num_px * num_px * 3, m_train)
